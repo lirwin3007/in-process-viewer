@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "three": "^0.124.0",
+    "vue": "^2.6.12",
+    "vue-gl": "^0.22.1",
+    "vue-native-websocket": "^2.0.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
