@@ -2,12 +2,15 @@ import os
 import http.server
 import socketserver
 
+# Check for updates
+# TODO
+
 # Determine the port number
 if 'IN_PROCESS_PORT' in os.environ:
   PORT = os.environ['IN_PROCESS_PORT']
   print("IN_PROCESS_PORT found:", PORT)
 else:
-  PORT = 8006
+  PORT = 8000
   print("IN_PROCESS_PORT not found. Using port", PORT)
 
 # Define the request handler
