@@ -85,6 +85,6 @@ Navigate to Settings > General in the sidebar.
 
 Set 'Webcam URL' to `<your-ip>:8000` (Replacing `<your-ip>` with the IP address of whatever device is running this software) and check 'Embed webcam image in an iframe'
 
-![image](https://user-images.githubusercontent.com/25307526/105096135-92d99e00-5a9e-11eb-8339-57337b61a2ef.png)
+![image](https://user-images.githubusercontent.com/25307526/105096355-d7fdd000-5a9e-11eb-8acb-688924281749.png)
 
 That's it! You should see the webcam option appear in the sidebar - click it and you're good to go!
