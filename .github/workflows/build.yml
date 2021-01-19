@@ -23,11 +23,8 @@ jobs:
     - name: Build application
       run: npm run build 
 
-    - name: Install Zip
-      run: sudo apt install zip
-
-    - name: Zip file
-      run: zip -r dist.zip dist
+    - name: Compress dist folder
+      run: tar -czvf dist.tar.gz dist
 
     - name: Get release
       id: get_release
@@ -41,6 +38,6 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{ steps.get_release.outputs.upload_url }}
-        asset_path: ./dist.zip
-        asset_name: in-process-viewer.zip
-        asset_content_type: application/zip
+        asset_path: ./dist.tar.gz
+        asset_name: in-process-viewer.tar.gz
+        asset_content_type: application/gzip
