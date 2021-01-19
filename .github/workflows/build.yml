@@ -42,5 +42,5 @@ jobs:
       with:
         upload_url: ${{ steps.get_release.outputs.upload_url }}
         asset_path: ./dist.zip
-        asset_name: dist.zip
+        asset_name: in-process-viewer.zip
         asset_content_type: application/zip
