@@ -1,0 +1,46 @@
+# This workflow will do a clean install of node dependencies and build the source code 
+
+name: Build
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install NPM Dependencies
+      run: npm install
+    - name: Build application
+      run: npm run build 
+
+    - name: Install Zip
+      run: sudo apt install zip
+
+    - name: Zip file
+      run: zip -r dist.zip dist
+
+    - name: Get release
+      id: get_release
+      uses: bruceadams/get-release@v1.2.2
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Upload a Release Asset
+      uses: actions/upload-release-asset@v1.0.2
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.get_release.outputs.upload_url }}
+        asset_path: ./dist.zip
+        asset_name: dist.zip
+        asset_content_type: application/zip
